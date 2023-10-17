@@ -1,0 +1,16 @@
+{%extends 'basic.html'%}
+{%block title%} Create New Blog Category {%endblock%}
+{%block body%}
+{%if user.is_authenticated%}
+<h1> ADD CATEGORY...</h1>
+<br /> <br />
+<div class="form-group">
+    <form method='POST'>
+        {% csrf_token %}
+        {{form.as_p}}
+        <button class="btn btn-secondary">Add Category</button>
+</div>
+{%else%}
+You're not allowed here!!!
+{%endif%}
+{%endblock%}

@@ -1,0 +1,20 @@
+{%extends 'basic.html'%}
+{%block title%} Edit Blog Post {%endblock%}
+{%block body%}
+
+{%if user.is_authenticated%}
+   {%if user.id == post.author.id %}
+      <h1> UPDATE POST...</h1>
+      <br /> <br />
+      <div class="form-group">
+          <form method='POST'>
+           {% csrf_token %}
+           {{form.media}}
+           {{form.as_p}}
+           <button class="btn btn-secondary">Update</button>
+      </div>
+    {%endif%}
+    {%else%}
+    You're not allowed here!!!
+{%endif%}
+{%endblock%} 
